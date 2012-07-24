@@ -1,0 +1,243 @@
+.slider-edit {
+	margin: 60px 0px 0px 0px;
+}
+
+/* Hide some WP stuff that's being generated */
+.slider-upload .after-file-upload, .slider-upload .upload-flash-bypass, .slider-upload .describe-toggle-on, .slider-upload .describe-toggle-off, .slider-upload table.startclosed {
+	display: none!important;
+}
+
+.slider-upload .pinkynail {
+	display: block!important;
+}
+
+.slider-upload .max-upload-size {
+	margin: 10px 0px 10px 0px;
+	display: block;
+}
+
+/* Slider management */
+a.edit-slider {
+	width: 16px;
+	height: 16px;
+	background: url('../images/edit.png');
+	position: absolute;
+	margin: -1px 0 0 8px;
+}
+
+a.delete-slider {
+	width: 16px;
+	height: 16px;
+	background: url('../images/delete.png');
+	position: absolute;
+	margin: -1px 0 0 30px;
+}
+
+/* Code generator */
+
+.slider-code-generator {
+	margin: 40px 0px 0px 0px;
+}
+
+.examples div.type {
+	display: none;
+	clear: both;
+}
+	.examples div .php, .examples div .js {
+		float: left;
+		clear: none;
+		margin: 10px 0px 0px 0px;
+	}
+		.examples div .php textarea, .examples div .js textarea {
+			width: 450px;
+			height: 150px;
+			margin: 4px 10px 0px 0px;
+		}
+	.examples div.type a {
+		display: block;
+		float: none;
+		clear: both;
+		margin: 4px 0px 0px 2px;
+	}
+
+/* Slider images */
+.slider-images {
+	clear: both;
+	width: 100%;
+	height: auto;
+	margin: 0;
+	padding: 5px 0px;
+	position: relative;
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+	.slider-images a {
+		position: relative;
+		display: block;
+		float: left;
+		
+		margin: 0px 2px;
+
+	}
+		.slider-images a div.overlay {
+			display: none;
+			
+			position: absolute;
+
+			left: 0;
+			bottom: 5px;
+			
+			width: 100%;
+			height: 40px;
+			
+			background: #000;
+			color: #fff;
+			
+			opacity: 0.7;
+			filter:alpha(opacity=70);
+		}
+			.slider-images a div.overlay p.title {
+				max-width: 70%;
+				overflow: hidden;
+				
+				margin: 0 10px;
+				
+				font-size: 24px;
+				line-height: 42px;
+				
+				float: left;
+			}
+			.slider-images a div.overlay p.edit {
+				float: right;
+				
+				margin: 0px 10px;
+				line-height: 42px;
+			}
+	.slider-images a:hover {
+		opacity: 1.0;
+	}
+		.slider-images a:hover div.overlay {
+			display: inline;
+		}
+		
+		
+	/* Actions */
+	.slider-images a .actions {
+		display: none;
+	}
+		.slider-images a:hover .actions {
+			display: inline;
+		}
+	
+	.slider-images .right, .slider-images .left {
+		position: absolute;
+		
+		top: 50%;
+		margin: -15px 10px 0px 10px;
+		
+		width: 30px;
+		height: 30px;
+		
+		cursor: pointer;
+	}
+	
+	.slider-images .first .left, .slider-images .last .right {
+		display: none;
+	}
+	
+	.slider-images .left {		
+		background: url('../images/arrows.png');
+		left: 0;
+	}
+	
+	.slider-images .right {		
+		background: url('../images/arrows.png');
+		background-position: right;
+		
+		right: 0;
+	}
+	
+	.slider-images .remove {
+		background: url('../images/remove.png');
+		
+		width: 30px;
+		height: 30px;
+		
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		
+		cursor: pointer;
+		
+		opacity: 0.4;
+		filter:alpha(opacity=40);
+	}
+		.slider-images .remove:hover {
+			opacity: 1.0;
+			filter:alpha(opacity=100);
+		}
+		
+/* Slide editor */
+#wpbody {
+	position: static!important;
+}
+.slide-editor-wrap {
+	display: none;
+	
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	z-index: 999;
+	top: 0;
+	left: 0;
+	
+	background: url('../images/bg-trans.png');
+}
+	.slide-editor {
+		width: 560px;
+		height: 370px;
+		background: white;
+		position: absolute;
+		position: fixed;
+		z-index: 9999;
+		
+		top: 50%;
+		left: 50%;
+		margin-top: -200px;
+		margin-left: -300px;
+		
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		
+		padding: 15px 20px;
+		
+		-moz-box-shadow: 0px 0px 8px #333;
+		-webkit-box-shadow: 0px 0px 8px #333;
+		box-shadow: 0px 0px 8px #333;
+	}
+	
+	.slide-editor img {
+		margin: 10px 0px 0px 0px;
+		height: 180px;
+		width: auto;
+	}
+	
+	.slide-editor table {
+		width: 100%;
+		margin: 10px 0px 10px 0px;
+	}
+		.slide-editor table th {
+			width: 100px;
+			text-align: left;
+		}
+		.slide-editor table input {
+			width: 100%;
+		}
+	
+	.slide-editor .actions {
+		position: absolute;
+		right: 20px;
+		bottom: 10px;
+	}
