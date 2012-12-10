@@ -1,16 +1,16 @@
 <?php
 /*
-Plugin Name: UI Sliders
+Plugin Name: TP Sliders
 Plugin URI: http://www.trendwerk.nl/
-Description: User interface for managing sliders
+Description: Manage sliders and their images
 Author: Ontwerpstudio Trendwerk
 Version: 1.0
 Author URI: http://www.trendwerk.nl/
 */
 
 //Includes
-include('includes/uis.UISlider.php');
-include('includes/uis.functions.php');
+include('includes/class.UISlider.php');
+include('includes/functions.php');
 
 //Admin page
 function uis_add_menu() {
