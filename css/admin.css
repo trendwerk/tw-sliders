@@ -129,7 +129,7 @@ a.delete-slider {
 			display: inline;
 		}
 	
-	.slider-images .right, .slider-images .left {
+	.slider-images .tw-slider-right, .slider-images .tw-slider-left {
 		position: absolute;
 		
 		top: 50%;
@@ -141,23 +141,23 @@ a.delete-slider {
 		cursor: pointer;
 	}
 	
-	.slider-images .first .left, .slider-images .last .right {
+	.slider-images .first .tw-slider-left, .slider-images .last .tw-slider-right {
 		display: none;
 	}
 	
-	.slider-images .left {		
+	.slider-images .tw-slider-left {		
 		background: url('../images/arrows.png');
 		left: 0;
 	}
 	
-	.slider-images .right {		
+	.slider-images .tw-slider-right {		
 		background: url('../images/arrows.png');
 		background-position: right;
 		
 		right: 0;
 	}
 	
-	.slider-images .remove {
+	.slider-images .tw-slider-remove {
 		background: url('../images/remove.png');
 		
 		width: 30px;
@@ -172,7 +172,7 @@ a.delete-slider {
 		opacity: 0.4;
 		filter:alpha(opacity=40);
 	}
-		.slider-images .remove:hover {
+		.slider-images .tw-slider-remove:hover {
 			opacity: 1.0;
 			filter:alpha(opacity=100);
 		}

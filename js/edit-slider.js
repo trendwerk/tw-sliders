@@ -25,7 +25,7 @@ jQuery(document).ready(function($) {
 	*/
 	var submit_url = $('#file-form').attr('action');
 	
-	$('.left').click(function() {
+	$('.tw-slider-left').click(function() {
 		var image_id = $(this).parent().parent().children('#id').val();
 		var new_url = submit_url+'&image_id='+image_id+'&action=left';
 		
@@ -34,7 +34,7 @@ jQuery(document).ready(function($) {
 		return false;
 	});
 	
-	$('.right').click(function() {
+	$('.tw-slider-right').click(function() {
 		var image_id = $(this).parent().parent().children('#id').val();
 		var new_url = submit_url+'&image_id='+image_id+'&action=right';
 		
@@ -43,7 +43,7 @@ jQuery(document).ready(function($) {
 		return false;
 	});
 	
-	$('.remove').click(function() {
+	$('.tw-slider-remove').click(function() {
 		var image_id = $(this).parent().parent().children('#id').val();
 		var new_url = submit_url+'&image_id='+image_id+'&action=remove';
 		

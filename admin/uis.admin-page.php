@@ -67,9 +67,9 @@
 							</div>
 							
 							<div class="actions">
-								<div class="left"></div>
-								<div class="right"></div>
-								<div class="remove"></div>
+								<div class="tw-slider-left"></div>
+								<div class="tw-slider-right"></div>
+								<div class="tw-slider-remove"></div>
 							</div>
 						</a>
 					<?php $i++; } ?>
