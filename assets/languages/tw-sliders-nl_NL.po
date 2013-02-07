@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TW Sliders\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-07 17:38+0100\n"
-"PO-Revision-Date: 2013-02-07 17:44+0100\n"
+"POT-Creation-Date: 2013-02-07 17:53+0100\n"
+"PO-Revision-Date: 2013-02-07 17:53+0100\n"
 "Last-Translator: Harold <harold@trendwerk.nl>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -13,103 +13,107 @@ msgstr ""
 "X-Poedit-Basepath: ../../\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: tw-sliders.php:23
+#: tw-sliders.php:56
 msgid "jQuery cycle"
 msgstr "jQuery cycle"
 
-#: tw-sliders.php:27
+#: tw-sliders.php:60
 msgid "Responsive slides"
 msgstr "Responsive slides"
 
-#: tw-sliders.php:35
+#: tw-sliders.php:68
 msgid "Fade"
 msgstr "Vervagen"
 
-#: tw-sliders.php:42
+#: tw-sliders.php:75
 msgid "Scroll horizontal"
 msgstr "Horizontaal scrollen"
 
-#: tw-sliders.php:54
+#: tw-sliders.php:84
+msgid "None"
+msgstr "Geen"
+
+#: tw-sliders.php:87
 msgid "Arrows"
 msgstr "Pijltjes"
 
-#: tw-sliders.php:57
+#: tw-sliders.php:90
 msgid "Pager"
 msgstr "Paginatie"
 
-#: tw-sliders.php:60
+#: tw-sliders.php:93
 msgid "Arrows &amp; Pager"
 msgstr "Pijltjes &amp; Paginatie"
 
-#: tw-sliders.php:102
-#: tw-sliders.php:136
-#: tw-sliders.php:494
+#: tw-sliders.php:109
+#: tw-sliders.php:143
+#: tw-sliders.php:501
 msgid "Sliders"
 msgstr "Sliders"
 
-#: tw-sliders.php:103
+#: tw-sliders.php:110
 msgid "Slider"
 msgstr "Sliders"
 
-#: tw-sliders.php:104
+#: tw-sliders.php:111
 msgid "Add slider"
 msgstr "Slider toevoegen"
 
-#: tw-sliders.php:105
+#: tw-sliders.php:112
 msgid "Add new slider"
 msgstr "Nieuwe slider toevoegen"
 
-#: tw-sliders.php:391
+#: tw-sliders.php:398
 msgid "Are you sure you want to delete this slider?"
 msgstr "Weet je zeker dat je deze slider wilt verwijderen?"
 
-#: tw-sliders.php:428
+#: tw-sliders.php:435
 msgid "Slider Settings"
 msgstr "Slider Instellingen"
 
-#: tw-sliders.php:435
-#: tw-sliders.php:497
+#: tw-sliders.php:442
+#: tw-sliders.php:504
 msgid "Image width"
 msgstr "Breedte"
 
-#: tw-sliders.php:437
-#: tw-sliders.php:443
-#: tw-sliders.php:461
-#: tw-sliders.php:467
+#: tw-sliders.php:444
+#: tw-sliders.php:450
+#: tw-sliders.php:468
+#: tw-sliders.php:474
 msgid "Leave empty to inherit"
 msgstr "Leeg voor instelling"
 
-#: tw-sliders.php:441
-#: tw-sliders.php:500
+#: tw-sliders.php:448
+#: tw-sliders.php:507
 msgid "Image height"
 msgstr "Hoogte"
 
-#: tw-sliders.php:448
-#: tw-sliders.php:506
+#: tw-sliders.php:455
+#: tw-sliders.php:513
 msgid "Transition"
 msgstr "Overgang"
 
-#: tw-sliders.php:450
-#: tw-sliders.php:474
+#: tw-sliders.php:457
+#: tw-sliders.php:481
 msgid "Current setting"
 msgstr "Huidige instelling"
 
-#: tw-sliders.php:459
-#: tw-sliders.php:509
+#: tw-sliders.php:466
+#: tw-sliders.php:516
 msgid "Speed (ms)"
 msgstr "Snelheid (ms)"
 
-#: tw-sliders.php:465
-#: tw-sliders.php:512
+#: tw-sliders.php:472
+#: tw-sliders.php:519
 msgid "Timeout (ms)"
 msgstr "Timeout (ms)"
 
-#: tw-sliders.php:472
-#: tw-sliders.php:515
+#: tw-sliders.php:479
+#: tw-sliders.php:522
 msgid "Navigation"
 msgstr "Navigatie"
 
-#: tw-sliders.php:503
+#: tw-sliders.php:510
 msgid "jQuery plugin"
 msgstr "jQuery plugin"
 
