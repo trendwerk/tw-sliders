@@ -6,31 +6,33 @@ jQuery(document).ready(function($) {
 	 */
 	function tw_sliders_init() {
 		if(typeof wp !== 'undefined') {
-			/**
-			 * Create frame actions based on "New slider" button
-			 */
-			var frame = wp.media.editor.add('tw-sliders');
-			
-			//Open the frame
-			frame.on('open', function(){
-				tw_sliders_media_frame();
-				window.send_to_editor_restore = window.send_to_editor;
-				editing_slider = false;
+			$('.insert-media[data-editor="tw-sliders"]').click(function() {
+				/**
+				 * Create frame actions based on "New slider" button
+				 */
+				var frame = wp.media.editor.add('tw-sliders');
 				
-				window.send_to_editor = function(html) {
-					//Don't make a gallery, make a slider!
-					html = tw_create_uid(html);
-					tw_sliders_update(html);
+				//Open the frame
+				frame.on('open', function(){
+					tw_sliders_media_frame();
+					window.send_to_editor_restore = window.send_to_editor;
+					editing_slider = false;
 					
-					//Return frame back to normal
-					window.send_to_editor = window.send_to_editor_restore;
+					window.send_to_editor = function(html) {
+						//Don't make a gallery, make a slider!
+						html = tw_create_uid(html);
+						tw_sliders_update(html);
+						
+						//Return frame back to normal
+						window.send_to_editor = window.send_to_editor_restore;
+						tw_sliders_unload_media_frame();
+					};
+				});
+				
+				//Close the frame
+				frame.on('escape', function(){
 					tw_sliders_unload_media_frame();
-				};
-			});
-			
-			//Close the frame
-			frame.on('escape', function(){
-				tw_sliders_unload_media_frame();
+				});
 			});
 			
 			/**
