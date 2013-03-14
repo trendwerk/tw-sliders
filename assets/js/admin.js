@@ -99,7 +99,8 @@ jQuery(document).ready(function($) {
 			$('#tmpl-gallery-settings').html($('#tmpl-gallery-settings').html()+$('#tw-sliders-gallery-settings').html());
 		}
 	}
-	tw_sliders_init();
+	
+	if($('a[data-editor="tw-sliders"]')) tw_sliders_init();
 	
 	/**
 	 * Update (or create) a slider, based on a (gallery) shortcode
