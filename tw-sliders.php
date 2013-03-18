@@ -154,6 +154,7 @@ class TWSliders {
 		wp_enqueue_media($post);
 		
 		$sliders = get_post_meta($post->ID,'tw-sliders',true);
+		if(!is_array($sliders)) $sliders = array();
 		
 		include('assets/views/meta-box.php');
 	}
@@ -419,6 +420,7 @@ class TWSliders {
 	 * Update (or create) a slider
 	 */
 	function update_slider($args) {
+		$slider = new stdClass;
 		$slider->ids = $args['ids'];
 		$slider->content = $this->display_slider($args);
 		
