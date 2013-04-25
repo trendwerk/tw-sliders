@@ -293,6 +293,7 @@ class TWSliders {
 		//Register JS libraries
 		if($this->plugins) :
 			foreach($this->plugins as $plugin=>$meta) :
+				wp_deregister_script($plugin);
 				wp_register_script($plugin,$meta['js'],array('jquery'));
 				if($meta['css']) wp_register_style($plugin,$meta['css']);
 			endforeach;
