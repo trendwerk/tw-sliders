@@ -264,7 +264,7 @@ class TWSliders {
 		
 		if($autocreate) :
 			//Create image if something went wrong and it still doesn't exist
-			$image = wp_get_image_editor($new_url);
+			$image = wp_get_image_editor(str_replace(site_url(),ABSPATH,$new_url));
 			if(is_wp_error($image)) $this->create_image($url,$width,$height);
 		endif;
 		
