@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
 	$('.slider .slider-inner').each(function() {
 		if(tw_sliders_settings['plugin'] == 'cycle') {
 			$(this).cycle({
-				slides: '> div.slide'
+				slides: '> figure.slide'
 			});
 		} else if(tw_sliders_settings['plugin'] == 'responsiveslides') {
 			var pager = false;
