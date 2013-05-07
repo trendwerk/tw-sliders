@@ -18,14 +18,17 @@ Go to Appearance -> Sliders to create and edit sliders. Sliders are by default a
 ### Post type support
 
 Remove sliders for a post type
+
 	remove_post_type_support('page','sliders');
 
 Add slider support for an existing post type or set it when registering
+
 	add_post_type_support('page','sliders');
 
 ### HTML Output
 
 You might want some other HTML output than the default. You can use the filter `tw-sliders-output` for that.
+
 	function my_slider_output($html,$args) {
 		//Your HTML here.
 	}
@@ -35,6 +38,7 @@ You might want some other HTML output than the default. You can use the filter `
 **$args** All information about the slider being displayed
 
 An example if you want to use arrow navigations (disregarding the setting) which use « and ».
+
 	function my_slider_output($html,$args) {
 		extract($args);
 		?>
