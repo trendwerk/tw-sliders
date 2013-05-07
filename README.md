@@ -38,6 +38,7 @@ You might want some other HTML output than the default. You can use the filter `
 
 
 **$html** The default HTML output
+
 **$args** All information about the slider being displayed
 
 An example if you want to use arrow navigations (disregarding the setting) which use « and ».
