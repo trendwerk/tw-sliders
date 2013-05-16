@@ -1,0 +1,13 @@
+.slider-inner {
+	position: relative;
+}
+
+	.cycle-prev, .cycle-next {
+		background: #FFF;
+		border-radius: 999px;
+		float: left;
+		height: 32px;
+		line-height: 32px;
+		text-align: center;
+		width: 32px;
+	}
