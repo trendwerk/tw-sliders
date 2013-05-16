@@ -308,8 +308,11 @@ class TWSliders {
 			wp_enqueue_script('sliders',plugins_url('assets/js/sliders.js',__FILE__),array('jquery',$plugin));
 			$settings = array(
 				'plugin' => $plugin
-			);
+			);						
 			wp_localize_script('sliders','tw_sliders_settings',$settings);
+			
+			wp_enqueue_style('sliders',plugins_url('assets/css/tw-sliders.css',__FILE__));
+			
 		endif;
 	}
 	
