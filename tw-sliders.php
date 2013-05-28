@@ -425,6 +425,13 @@ class TWSliders {
 	 */
 	function update_slider($args) {
 		$slider = new stdClass;
+		
+		//Filter empty ids for half uploads
+		$ids = explode(',',$args['ids']);
+		$ids = array_filter($ids);
+		$args['ids'] = implode(',',$ids);
+		
+		//Save
 		$slider->ids = $args['ids'];
 		$slider->content = $this->display_slider($args);
 		
