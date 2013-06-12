@@ -5,6 +5,7 @@
 .slider-inner {	
 	clear: both;
 	float: left;
+	margin-bottom: 16px;
 	position: relative;
 	width: 100%;
 	/* box shadow */
@@ -26,7 +27,14 @@
 		box-shadow: 1px 1px 4px rgba(0,0,0,0.65);	
 	}
 	
-	.slider-inner img { display: block; }
+	.slider-inner .slide { width: 100%; }
+	
+	.slider-inner img { 
+		float: left;
+		display: block; 
+		height: auto;
+		width: 100%;  
+	}
 
 	/**
 	 * @prev-next
@@ -43,7 +51,7 @@
 		font: bold 18px sans-serif;
 		height: 30px;
 		line-height: 30px;
-		margin-top: -25px;
+		margin-top: -20px;
 		top: 50%;
 		opacity: 0.65;
 		position: absolute;
