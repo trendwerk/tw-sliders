@@ -11,8 +11,8 @@
 			//Specific plugin additions
 			if($plugin == 'cycle') :
 				if($navigation == 'arrows' || $navigation == 'arrows-pager') :
-					echo '<div class="cycle-prev">&lt;</div>';
-					echo '<div class="cycle-next">&gt;</div>';
+					echo '<div class="cycle-prev">&lsaquo;</div>';
+					echo '<div class="cycle-next">&rsaquo;</div>';
 				endif;
 				
 				if($navigation == 'pager' || $navigation == 'arrows-pager') :
