@@ -1,5 +1,9 @@
 jQuery(document).ready(function($) {
+	
+$('.slider .slider-inner').hide().fadeIn('slow', function() { $(this).css('visibility','visible'); });
+	
 	$('.slider .slider-inner').each(function() {
+			
 		if(tw_sliders_settings['plugin'] == 'cycle') {
 			$(this).cycle({
 				slides: '> figure.slide'

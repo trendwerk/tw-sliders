@@ -4,6 +4,7 @@
 
 .slider-inner {	
 	clear: both;
+	visibility: hidden;
 	float: left;
 	margin-bottom: 25px;
 	position: relative;
