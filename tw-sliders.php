@@ -164,17 +164,19 @@ class TWSliders {
 	 */
 	function save_sliders($post_id) {
 		if(!wp_is_post_revision($post_id) && !wp_is_post_autosave($post_id) && ((!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || $_SERVER['HTTP_X_REQUESTED_WITH'] != 'XMLHttpRequest'))) :
-			if($sliders = $_POST['tw-sliders']) :
-				$i=0;
-				$new_sliders = array();
-				foreach($sliders as $slider) :
-					$new_sliders[$_POST['tw-sliders-ids'][$i]] = $slider;
-					$i++;
-				endforeach;
-				$sliders = $new_sliders;
+			if(isset($_POST['tw-sliders'])) :
+				if($sliders = $_POST['tw-sliders']) :
+					$i=0;
+					$new_sliders = array();
+					foreach($sliders as $slider) :
+						$new_sliders[$_POST['tw-sliders-ids'][$i]] = $slider;
+						$i++;
+					endforeach;
+					$sliders = $new_sliders;
+				endif;
+				
+				update_post_meta($post_id,'tw-sliders',$sliders);
 			endif;
-			
-			update_post_meta($post_id,'tw-sliders',$sliders);
 		endif;
 	}
 	
@@ -185,7 +187,8 @@ class TWSliders {
 	function display_slider($args) {
 		global $post_id;
 		
-		if($ids = $args['ids']) : //Shortcode based on IDs
+		if(isset($args['ids'])) : //Shortcode based on IDs
+			$ids = $args['ids'];
 			$images = explode(',',$ids);
 			
 			if(is_admin()) :
@@ -295,7 +298,7 @@ class TWSliders {
 			foreach($this->plugins as $plugin=>$meta) :
 				wp_deregister_script($plugin);
 				wp_register_script($plugin,$meta['js'],array('jquery'));
-				if($meta['css']) wp_register_style($plugin,$meta['css']);
+				if(isset($meta['css']) && $meta['css']) wp_register_style($plugin,$meta['css']);
 			endforeach;
 		endif;
 		
