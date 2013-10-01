@@ -192,7 +192,7 @@ class TWSliders {
 			$images = explode(',',$ids);
 			
 			if(is_admin()) :
-				if($_POST['action'] != 'tw_update_slider') :
+				if(!isset($_POST['action']) || $_POST['action'] != 'tw_update_slider') :
 					//A slider is displayed in the back-end. Create the right image sizes.
 					$width = $args['width'];
 					$height = $args['height'];
