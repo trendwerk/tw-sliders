@@ -240,8 +240,8 @@ class TWSliders {
 				//Collect images
 				$args['images'] = array();
 				foreach(explode(',',$ids) as $id) :
-					$image = get_post($id);
-					$args['images'][$id] = $this->get_image($image->guid,$width,$height);
+					$image = wp_get_attachment_image_src( $id, 'full');
+					$args['images'][$id] = $this->get_image($image[0],$width,$height);
 				endforeach;
 				
 				//Front-end
