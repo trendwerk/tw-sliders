@@ -70,15 +70,17 @@
 	
 	.cycle-prev:hover, .cycle-next:hover { opacity: 1; }
 	
-	.cycle-prev { 
+	.cycle-prev {
 		background: url('../img/prev.png') no-repeat center center;
 		background-size: 60% 60%;
+		cursor: w-resize;
 		left: 20px; 
 	}
 	
-	.cycle-next { 
+	.cycle-next {
 		background: url('../img/next.png') no-repeat center center;
 		background-size: 60% 60%;
+		cursor: e-resize;
 		right: 20px; 
 	}
 	
