@@ -31,6 +31,10 @@
 	.tw-sliders-slider-settings h3 {
 		float: left;
 	}
+	.tw-sliders-slider-settings p.description {
+		width: 65%;
+		float: right;
+	}
 	
 .tw-sliders-media-frame .tw-sliders-slider-settings {
 	display: block;

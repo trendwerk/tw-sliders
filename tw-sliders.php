@@ -10,15 +10,13 @@ Author URI: http://www.trendwerk.nl/
 
 include('assets/inc/template-tags.php');
 
-class TWSliders {
-	var $plugins;
-	
+class TWSliders {	
 	/**
 	 * Constructor
 	 */
 	function __construct() {
 		//Initialize variables
-		add_action('init',array($this,'setup_variables'));
+		add_action('init',array($this,'setup_options'));
 		
 		//Core: Init post type and meta boxes
 		add_action('init',array($this,'setup_post_types'));
@@ -48,35 +46,12 @@ class TWSliders {
 	}
 	
 	/**
-	 * Setup static variables
+	 * Setup options
 	 */
-	function setup_variables() {
-		$this->plugins = array(
-			'cycle' => array(
-				'name' => __('jQuery cycle','tw-sliders'),
-				'js' => plugins_url('assets/js/lib/cycle/jquery.cycle2.min.js',__FILE__)
-			),
-			'responsiveslides' => array(
-				'name' => __('Responsive slides','tw-sliders'),
-				'js' => plugins_url('assets/js/lib/responsiveslides/responsiveslides.min.js',__FILE__),
-				'css' => plugins_url('assets/js/lib/responsiveslides/responsiveslides.css',__FILE__)
-			)
-		);
-		
+	function setup_options() {		
 		$this->transitions = array(
-			'fade' => array(
-				'name' => __('Fade','tw-sliders'),
-				'plugins' => array(
-					'cycle' => 'fade',
-					'responsiveslides' => '' //Only has fade
-				)
-			),
-			'scroll-horizontal' => array(
-				'name' => __('Scroll horizontal','tw-sliders'),
-				'plugins' => array(
-					'cycle' => 'scrollHorz'
-				)
-			)
+			'fade' => __('Fade','tw-sliders'),
+			'scrollHorz' => __('Scroll horizontal','tw-sliders'),
 		);
 		
 		$this->navigation = array(
@@ -215,12 +190,9 @@ class TWSliders {
 				include('assets/views/admin-slider.php');
 				return ob_get_clean();
 			else :
-				//Init variables
-				$plugin = get_option('tw-sliders-jquery-plugin');
-				
+				//Init variables				
 				$transition = $args['transition'];
 				if(!$transition || $transition == 'inherit') $transition = get_option('tw-sliders-transition');
-				$transition = $this->transitions[$transition]['plugins'][$plugin];
 				
 				$speed = $args['speed'];
 				if(!$speed) $speed = get_option('tw-sliders-speed');
@@ -293,30 +265,13 @@ class TWSliders {
 	 * Enqueue scripts for front-end
 	 */
 	function enqueue_scripts() {
-		//Register JS libraries
-		if($this->plugins) :
-			foreach($this->plugins as $plugin=>$meta) :
-				wp_deregister_script($plugin);
-				wp_register_script($plugin,$meta['js'],array('jquery'));
-				if(isset($meta['css']) && $meta['css']) wp_register_style($plugin,$meta['css']);
-			endforeach;
-		endif;
+		//Enqueue Cycle
+		wp_deregister_script( 'cycle' );
+		wp_enqueue_script( 'cycle', plugins_url( 'assets/js/lib/cycle/jquery.cycle2.min.js', __FILE__ ), array( 'jquery' ) );
 		
-		if($plugin = get_option('tw-sliders-jquery-plugin')) :
-			//Run whatever JS library is chosen
-			wp_enqueue_script($plugin);
-			wp_enqueue_style($plugin);
-		
-			//Actually activate all sliders
-			wp_enqueue_script('sliders',plugins_url('assets/js/sliders.js',__FILE__),array('jquery',$plugin));
-			$settings = array(
-				'plugin' => $plugin
-			);						
-			wp_localize_script('sliders','tw_sliders_settings',$settings);
-			
-			wp_enqueue_style('sliders',plugins_url('assets/css/tw-sliders.css',__FILE__));
-			
-		endif;
+		//Active sliders
+		wp_enqueue_script('tw-sliders',plugins_url('assets/js/tw-sliders.js',__FILE__),array('jquery','cycle'));	
+		wp_enqueue_style('tw-sliders',plugins_url('assets/css/tw-sliders.css',__FILE__));
 	}
 	
 	/**
@@ -457,37 +412,44 @@ class TWSliders {
 				<label class="setting">
 					<span><?php _e('Image width','tw-sliders'); ?></span>
 					<input type="text" class="width" data-setting="width" />
-					<span class="description"><?php _e('Leave empty to inherit','tw-sliders'); ?> (<?php echo get_option('tw-sliders-image-width'); ?>)</span>
+					<p class="description"><?php _e('Leave empty to inherit','tw-sliders'); ?> (<?php echo get_option('tw-sliders-image-width'); ?>)</p>
 				</label>
 				
 				<label class="setting">
 					<span><?php _e('Image height','tw-sliders'); ?></span>
 					<input type="text" class="height" data-setting="height" />
-					<span class="description"><?php _e('Leave empty to inherit','tw-sliders'); ?> (<?php echo get_option('tw-sliders-image-height'); ?>)</span>
+					<p class="description"><?php _e('Leave empty to inherit','tw-sliders'); ?> (<?php echo get_option('tw-sliders-image-height'); ?>)</p>
 				</label>
 				
-				<?php if($this->transitions) : ?>
+				<?php if($this->transitions) { ?>
 					<label class="setting">
+
 						<span><?php _e('Transition','tw-sliders'); ?></span>
+
 						<select class="transition" data-setting="transition">
-							<option value="inherit" selected><?php _e('Current setting','tw-sliders'); ?></option>
-							<?php foreach($this->transitions as $transition=>$meta) : if(!isset($meta['plugins'][get_option('tw-sliders-jquery-plugin')])) continue; ?>
-								<option value="<?php echo $transition; ?>"><?php echo $meta['name']; ?></option>
-							<?php endforeach; ?>
+							<option value="inherit" selected><?php _e( 'Current setting', 'tw-sliders' ); ?></option>
+
+							<?php foreach( $this->transitions as $transition => $label ) { ?>
+								<option value="<?php echo $transition; ?>">
+									<?php echo $label; ?>
+								</option>
+							<?php } ?>
+
 						</select>
+
 					</label>
-				<?php endif; ?>
+				<?php } ?>
 				
 				<label class="setting">
 					<span><?php _e('Speed (ms)','tw-sliders'); ?></span>
 					<input type="text" class="speed" data-setting="speed" />
-					<span class="description"><?php _e('Leave empty to inherit','tw-sliders'); ?> (<?php echo get_option('tw-sliders-speed'); ?>)</span>
+					<p class="description"><?php _e('Leave empty to inherit','tw-sliders'); ?> (<?php echo get_option('tw-sliders-speed'); ?>)</p>
 				</label>
 				
 				<label class="setting">
 					<span><?php _e('Timeout (ms)','tw-sliders'); ?></span>
 					<input type="text" class="timeout" data-setting="timeout" />
-					<span class="description"><?php _e('Leave empty to inherit','tw-sliders'); ?> (<?php echo get_option('tw-sliders-timeout'); ?>)</span>
+					<p class="description"><?php _e('Leave empty to inherit','tw-sliders'); ?> (<?php echo get_option('tw-sliders-timeout'); ?>)</p>
 				</label>
 				
 				<?php if($this->navigation) : ?>
@@ -523,9 +485,6 @@ class TWSliders {
 		add_settings_field('tw-sliders-image-height',__('Image height','tw-sliders'),array($this,'show_text_field'),'media','tw-sliders',array('label_for' => 'tw-sliders-image-height', 'class' => 'small-text'));
 		register_setting('media','tw-sliders-image-height');
 		
-		add_settings_field('tw-sliders-jquery-plugin',__('jQuery plugin','tw-sliders'),array($this,'show_jquery_plugins'),'media','tw-sliders',array('label_for' => 'tw-sliders-jquery-plugin'));
-		register_setting('media','tw-sliders-jquery-plugin');
-		
 		add_settings_field('tw-sliders-transition',__('Transition','tw-sliders'),array($this,'show_transitions'),'media','tw-sliders',array('label_for' => 'tw-sliders-transition'));
 		register_setting('media','tw-sliders-transition');
 		
@@ -549,30 +508,15 @@ class TWSliders {
 	}
 	
 	/**
-	 * Show plugin picker
-	 */
-	function show_jquery_plugins($args) {
-		if($this->plugins) :
-		?>
-			<select id="<?php echo $args['label_for']; ?>" name="<?php echo $args['label_for']; ?>" class="<?php echo $args['class']; ?>">
-				<?php foreach($this->plugins as $plugin=>$meta) : ?>
-					<option <?php selected(get_option($args['label_for']),$plugin); ?> value="<?php echo $plugin; ?>"><?php echo $meta['name']; ?></option>
-				<?php endforeach; ?>
-			</select>
-		<?php
-		endif;
-	}
-	
-	/**
 	 * Show transition effects
 	 */
 	function show_transitions($args) {
 		if($this->transitions) :
 		?>
 			<select id="<?php echo $args['label_for']; ?>" name="<?php echo $args['label_for']; ?>" class="<?php echo $args['class']; ?>">
-				<?php foreach($this->transitions as $transition=>$meta) : if(!isset($meta['plugins'][get_option('tw-sliders-jquery-plugin')])) continue; ?>
-					<option <?php selected(get_option($args['label_for']),$transition); ?> value="<?php echo $transition; ?>"><?php echo $meta['name']; ?></option>
-				<?php endforeach; ?>
+				<?php foreach($this->transitions as $transition=>$label) { ?>
+					<option <?php selected(get_option($args['label_for']),$transition); ?> value="<?php echo $transition; ?>"><?php echo $label; ?></option>
+				<?php } ?>
 			</select>
 		<?php
 		endif;
@@ -600,7 +544,6 @@ class TWSliders {
 		$defaults = array(
 			'image-width' => 620,
 			'image-height' => 400,
-			'jquery-plugin' => 'cycle',
 			'transition' => 'fade',
 			'speed' => 500,
 			'timeout' => 10000,
