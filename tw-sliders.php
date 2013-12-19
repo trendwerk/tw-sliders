@@ -128,7 +128,7 @@ class TWSliders {
 		global $post;
 		wp_enqueue_media($post);
 		
-		$sliders = get_post_meta($post->ID,'tw-sliders',true);
+		$sliders = get_post_meta($post->ID,'_tw-sliders',true);
 		if(!is_array($sliders)) $sliders = array();
 		
 		include('assets/views/meta-box.php');
@@ -150,7 +150,7 @@ class TWSliders {
 					$sliders = $new_sliders;
 				endif;
 				
-				update_post_meta($post_id,'tw-sliders',$sliders);
+				update_post_meta($post_id,'_tw-sliders',$sliders);
 			endif;
 		endif;
 	}
@@ -223,7 +223,7 @@ class TWSliders {
 			endif;
 		elseif($uid = $args['uid']) : //Shortcode based on UID
 			if($post_id = $args['post_id']) :
-				$sliders = get_post_meta($post_id,'tw-sliders',true);
+				$sliders = get_post_meta($post_id,'_tw-sliders',true);
 				
 				if($slider = $sliders[$uid]) return do_shortcode($slider);
 			endif;
