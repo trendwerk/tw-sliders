@@ -215,6 +215,12 @@ class TWSliders {
 					$image = wp_get_attachment_image_src( $id, 'full');
 					$args['images'][$id] = $this->get_image($image[0],$width,$height);
 				endforeach;
+
+				$images = $args['images'];
+
+				extract( apply_filters( 'tw-sliders-args', compact( 'transition', 'speed', 'timeout', 'navigation', 'images' ) ) );
+
+				$args['images' ] = $images;
 				
 				//Front-end
 				ob_start();
