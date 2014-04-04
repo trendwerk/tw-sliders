@@ -138,21 +138,44 @@ class TWSliders {
 	 * Save the sliders
 	 */
 	function save_sliders($post_id) {
-		if(!wp_is_post_revision($post_id) && !wp_is_post_autosave($post_id) && ((!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || $_SERVER['HTTP_X_REQUESTED_WITH'] != 'XMLHttpRequest'))) :
-			if(isset($_POST['tw-sliders'])) :
-				if($sliders = $_POST['tw-sliders']) :
-					$i=0;
-					$new_sliders = array();
-					foreach($sliders as $slider) :
-						$new_sliders[$_POST['tw-sliders-ids'][$i]] = $slider;
-						$i++;
-					endforeach;
-					$sliders = $new_sliders;
-				endif;
-				
-				update_post_meta($post_id,'_tw-sliders',$sliders);
-			endif;
-		endif;
+		/**
+		 * Perform checks
+		 */
+		if( wp_is_post_revision( $post_id ) || wp_is_post_autosave( $post_id ) )
+			return;
+	
+		if( isset( $_REQUEST['doing_wp_cron'] ) )
+			return;
+			
+		if( $_REQUEST['post_view'] == 'list' )
+		    return;
+		
+		$post = get_post( $post_id );
+
+		if( ! post_type_supports( $post->post_type, 'sliders' ) )
+			return;
+	
+		/**
+		 * Save data
+		 */
+		if( isset( $_POST['tw-sliders'] ) ) {
+
+			if($sliders = $_POST['tw-sliders']) {
+
+				$new_sliders = array();
+
+				foreach( $sliders as $i => $slider ) {
+					$new_sliders[ $_POST['tw-sliders-ids'][ $i ] ] = $slider;
+					$i++;
+				}
+
+				$sliders = $new_sliders;
+
+			}
+
+		}
+			
+		update_post_meta( $post_id, '_tw-sliders', $sliders );
 	}
 	
 	
@@ -326,21 +349,23 @@ class TWSliders {
 			$args = $this->only_uid($args);
 			
 			$param = array();
-			$params = 'array(';
+			$params = 'array( ';
 			foreach($args as $key=>$value) :
 				if($key == 'ids') continue;
 				$param[] = '\''.$key.'\' => '.$value;
 			endforeach;
 			$params .= implode(', ',$param);
-			$params .= ')';
+			$params .= ' )';
 			
 			if(count($param) == 0) $params = '';
 		endif;
 		
-		$template_tag = '<?php tw_slider('.$post->ID;
-		if($params) $template_tag .= ','.$params;
+		$template_tag = '<?php tw_slider( '.$post->ID;
+
+		if( $params )
+			$template_tag .= ', '.$params;
 		
-		$template_tag .= '); ?>';
+		$template_tag .= ' ); ?>';
 		
 		return $template_tag;
 	}
