@@ -10,8 +10,8 @@
 		<?php 
 			//Cycle navigation
 			if($navigation == 'arrows' || $navigation == 'arrows-pager') :
-				echo '<div class="cycle-prev">&lsaquo;</div>';
-				echo '<div class="cycle-next">&rsaquo;</div>';
+				echo '<div class="cycle-prev"><i class="fa fa-arrow-left"></i></div>';
+				echo '<div class="cycle-next"><i class="fa fa-arrow-right"></i></div>';
 			endif;
 			
 			if($navigation == 'pager' || $navigation == 'arrows-pager') :

@@ -6,29 +6,15 @@
 	clear: both;
 	display:none;
 	float: left;
-	margin-bottom: 25px;
+	margin-top: 25px;
+	margin-bottom: 50px;
 	position: relative;
 	width: 100%;
-	/* box shadow */
-	-moz-box-shadow: 1px 1px 4px rgba(0,0,0,0.15);
-	-webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.15);
-	box-shadow: 1px 1px 4px rgba(0,0,0,0.15);	
-	/* animate all */
-    -webkit-transition: all 0.75s ease-in-out;
-    -moz-transition: all 0.75s ease-in-out;
-    -o-transition: all 0.75s ease-in-out;
-    -ms-transition: all 0.75s ease-in-out;
-    transition: all 0.75s ease-in-out;
 }
-
-	.slider-inner:hover {
-		/* box shadow */
-		-moz-box-shadow: 1px 1px 4px rgba(0,0,0,0.65);
-		-webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.65);
-		box-shadow: 1px 1px 4px rgba(0,0,0,0.65);	
-	}
 	
-	.slider-inner .slide { width: 100%; }
+	.slider-inner .slide { 
+		width: 100%;
+	}
 	
 	.slider-inner img { 
 		float: left;
@@ -41,47 +27,39 @@
 	 * @prev-next
 	 */
 
-	.cycle-prev, .cycle-next {
-		background: rgba(0,0,0,0.5);
-		border: 3px solid #FFF;
-		box-shadow: 1px 1px 1px rgba(0,0,0,0.25);
+	.cycle-prev, 
+	.cycle-next {
+		background: #333;
 		border-radius: 999px;
 		color: #FFF;
 		cursor: pointer;
 		float: left;
-		font: bold 18px sans-serif;
-		height: 30px;
-		line-height: 30px;
-		margin-top: -20px;
-		top: 50%;
-		opacity: 0.65;
+		font-family: FontAwesome;
+		font-size: 24px;
+		height: 50px;
+		line-height: 50px;
+		margin-top: -25px;
+		opacity: 0.8;
 		position: absolute;
 		text-align: center;
-		width: 30px;
+		top: 50%;
+		width: 50px;
 		z-index: 999;
-		text-indent: -999999px;
-		/* animate all */
-	    -webkit-transition: all 0.25s ease-in-out;
-	    -moz-transition: all 0.25s ease-in-out;
-	    -o-transition: all 0.25s ease-in-out;
-	    -ms-transition: all 0.25s ease-in-out;
-	    transition: all 0.25s ease-in-out;
 	}
 	
-	.cycle-prev:hover, .cycle-next:hover { opacity: 1; }
+	.cycle-prev:hover, 
+	.cycle-next:hover { 
+		opacity: 1; 
+	}
 	
 	.cycle-prev {
-		background: url('../img/prev.png') no-repeat center center;
-		background-size: 60% 60%;
 		cursor: w-resize;
-		left: 20px; 
+		left: -25px; 
 	}
 	
 	.cycle-next {
-		background: url('../img/next.png') no-repeat center center;
-		background-size: 60% 60%;
 		cursor: e-resize;
-		right: 20px; 
+		right: -25px; 
 	}
 	
 	/**
@@ -95,28 +73,23 @@
 		font-size: 43px;
 		height: 60px;
 		line-height: 60px;
-		opacity: 0.65;
 		text-align: center;
 		width: 100%;
 		z-index: 999;
-		/* animate all */
-		-webkit-transition: all 0.25s ease-in-out;
-		-moz-transition: all 0.25s ease-in-out;
-		-o-transition: all 0.25s ease-in-out;
-		-ms-transition: all 0.25s ease-in-out;
-		transition: all 0.25s ease-in-out;
 	}
-		
-		.cycle-pager:hover { opacity: 1; }
-		
+
 		.cycle-pager span {
-			color: #000;
-			padding: 0px 1px;
-			text-shadow: 0 1px 1px rgba(0,0,0,0.25);
+			border: 3px solid #FFF;
+			background-color: #FFF;
+			border-radius: 999px;
+			display: inline-block;
+			height: 5px;
+			margin: 20px 5px 0 0;
+			text-indent: -999999px;
+			width: 5px;
 		}
-		
-		.cycle-pager .cycle-pager-active {
-			color: #FFF;
-			text-shadow: 0 1px 1px rgba(0,0,0,0.25);
-		}
+
+			.cycle-pager span.cycle-pager-active {
+				background-color: #999;
+			}
 		
