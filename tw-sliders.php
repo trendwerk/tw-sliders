@@ -392,6 +392,8 @@ class TWSliders {
 			'deleteConfirmation' => __('Are you sure you want to delete this slider?','tw-sliders')
 		);
 		wp_localize_script('tw-sliders-admin-js','tw_sliders_l10n',$strings);
+
+		add_thickbox();
 	}
 	
 	/**
