@@ -41,10 +41,10 @@ add_post_type_support( 'page', 'sliders' );
 You might want some other HTML output than the default. You can use the filter `tw-sliders-output` for that.
 
 ```php
-function my_slider_output($html,$args) {
-	//Your HTML here.
+function my_slider_output( $html, $args ) {
+	//Return your HTML here.
 }
-add_filter('tw-sliders-output','my_slider_output',10,2);
+add_filter( 'tw-sliders-output', 'my_slider_output', 10, 2 );
 ```
 
 **$html** The default HTML output
