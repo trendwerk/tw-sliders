@@ -2,12 +2,18 @@
 
 Manage sliders. Plugged into WordPress' media libraries. Can create general sliders or post-specific sliders.
 
-
 ## Installation
-1. Download the zip
-2. Unpack and upload to the /wp-content/plugins/ folder
-3. Activate the plugin
+If you're using Composer to manage WordPress, add this plugin to your project's dependencies. Run:
+```sh
+composer require trendwerk/tw-sliders 1.0.0
+```
 
+Or manually add it to your `composer.json`:
+```json
+"require": {
+	"trendwerk/tw-sliders": "1.0.0"
+},
+```
 
 ## How to use
 Go to Appearance -> Sliders to create and edit sliders. Sliders are by default also supported for pages.

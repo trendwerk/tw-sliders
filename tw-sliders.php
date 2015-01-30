@@ -1,12 +1,15 @@
 <?php
-/*
-Plugin Name: TW Sliders
-Plugin URI: https://github.com/trendwerk/tw-sliders
-Description: Manage sliders. Plugged into WordPress' media libraries. Can create general sliders or post-specific sliders.
-Author: Ontwerpstudio Trendwerk
-Version: 0.1
-Author URI: http://www.trendwerk.nl/
-*/
+/**
+ * Plugin Name: TW Sliders
+ * Description: Manage sliders. Plugged into WordPress' media libraries. Can create general sliders or post-specific sliders.
+ * 
+ * Plugin URI: https://github.com/trendwerk/tw-sliders
+ * 
+ * Author: Trendwerk
+ * Author URI: https://github.com/trendwerk
+ * 
+ * Version: 1.0.0
+ */
 
 include('assets/inc/template-tags.php');
 
