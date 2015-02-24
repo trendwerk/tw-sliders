@@ -150,7 +150,7 @@ class TWSliders {
 		if( isset( $_REQUEST['doing_wp_cron'] ) )
 			return;
 			
-		if( $_REQUEST['post_view'] == 'list' )
+		if( isset( $_REQUEST['post_view'] ) )
 		    return;
 		
 		$post = get_post( $post_id );
