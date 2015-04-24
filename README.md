@@ -5,13 +5,13 @@ Manage sliders. Plugged into WordPress' media libraries. Can create general slid
 ## Installation
 If you're using Composer to manage WordPress, add this plugin to your project's dependencies. Run:
 ```sh
-composer require trendwerk/tw-sliders 1.0.0
+composer require trendwerk/tw-sliders 1.0.1
 ```
 
 Or manually add it to your `composer.json`:
 ```json
 "require": {
-	"trendwerk/tw-sliders": "1.0.0"
+	"trendwerk/tw-sliders": "1.0.1"
 },
 ```
 

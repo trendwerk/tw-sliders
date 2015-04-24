@@ -8,7 +8,7 @@
  * Author: Trendwerk
  * Author URI: https://github.com/trendwerk
  * 
- * Version: 1.0.0
+ * Version: 1.0.1
  */
 
 include('assets/inc/template-tags.php');
